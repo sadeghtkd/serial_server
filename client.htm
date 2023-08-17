@@ -1,0 +1,25 @@
+<html>
+<head>
+
+</head>
+<body>
+<input type="text" id="txtData" />
+<script>
+  function connectBascul(){
+    let exampleSocket1 = new WebSocket("ws://127.0.0.1:8090");
+    
+    var text = "";
+    exampleSocket1.onmessage = (event) => {
+      if (event.data == " ")
+        text = "";
+      else
+        text += event.data;
+      document.getElementById('txtData').value = text;
+      console.log(event.data);
+    };
+  }
+
+</script>
+<input type="button" value="connect" onclick="connectBascul()" />
+</body>
+</html>
